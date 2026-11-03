@@ -1,4 +1,6 @@
 ﻿using CleanArchitecture.Domain.Common;
+using CleanArchitecture.Domain.Entities.InventoryManagement;
+using CleanArchitecture.Domain.Entities.PurchaseManagement;
 using CleanArchitecture.Domain.ValueObjects;
 
 namespace CleanArchitecture.Domain.Entities.WarehouseManagement
@@ -19,8 +21,28 @@ namespace CleanArchitecture.Domain.Entities.WarehouseManagement
 
         private readonly List<Stock> _stocks = []; // one warehouse containing stock records for multiple products.
 
+        private readonly List<GoodsReceipt> _goodsReceipts = [];
+
+        private readonly List<InventoryTransaction> _inventoryTransactions = [];
+
+        private readonly List<StockTransfer> _sourceTransfers = [];
+
+        private readonly List<StockTransfer> _destinationTransfers = [];
+
         public IReadOnlyCollection<Stock> Stocks =>
             _stocks.AsReadOnly();
+
+        public IReadOnlyCollection<GoodsReceipt> GoodsReceipts =>
+            _goodsReceipts.AsReadOnly();
+
+        public IReadOnlyCollection<InventoryTransaction> InventoryTransactions =>
+            _inventoryTransactions.AsReadOnly();
+
+        public IReadOnlyCollection<StockTransfer> SourceTransfers =>
+            _sourceTransfers.AsReadOnly();
+
+        public IReadOnlyCollection<StockTransfer> DestinationTransfers =>
+            _destinationTransfers.AsReadOnly();
 
         private Warehouse()
         {

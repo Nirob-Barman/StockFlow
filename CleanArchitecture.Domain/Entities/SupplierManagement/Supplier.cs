@@ -1,4 +1,5 @@
 ﻿using CleanArchitecture.Domain.Common;
+using CleanArchitecture.Domain.Entities.PurchaseManagement;
 using CleanArchitecture.Domain.Enums;
 using CleanArchitecture.Domain.ValueObjects;
 
@@ -16,8 +17,13 @@ namespace CleanArchitecture.Domain.Entities.SupplierManagement
 
         private readonly List<SupplierContact> _contacts = [];
 
+        private readonly List<PurchaseOrder> _purchaseOrders = [];        
+
         public IReadOnlyCollection<SupplierContact> Contacts =>
             _contacts.AsReadOnly();
+
+        public IReadOnlyCollection<PurchaseOrder> PurchaseOrders =>
+            _purchaseOrders.AsReadOnly();
 
         private Supplier()
         {

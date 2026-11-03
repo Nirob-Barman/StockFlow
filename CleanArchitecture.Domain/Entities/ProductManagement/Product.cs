@@ -34,13 +34,28 @@ namespace CleanArchitecture.Domain.Entities.ProductManagement
 
         private readonly List<Stock> _stocks = []; // one product having stock records in multiple warehouses
 
-        private readonly List<GoodsReceiptItem> _goodsReceiptItems = [];     
+        private readonly List<GoodsReceiptItem> _goodsReceiptItems = [];
+
+        private readonly List<PurchaseOrderItem> _purchaseOrderItems = [];
+
+        private readonly List<StockTransferItem> _stockTransferItems = [];
+
+        private readonly List<InventoryTransaction> _inventoryTransactions = [];        
 
         public IReadOnlyCollection<Stock> Stocks =>
             _stocks.AsReadOnly();
 
         public IReadOnlyCollection<GoodsReceiptItem> GoodsReceiptItems =>
-            _goodsReceiptItems.AsReadOnly();      
+            _goodsReceiptItems.AsReadOnly();
+
+        public IReadOnlyCollection<PurchaseOrderItem> PurchaseOrderItems =>
+            _purchaseOrderItems.AsReadOnly();
+
+        public IReadOnlyCollection<StockTransferItem> StockTransferItems =>
+            _stockTransferItems.AsReadOnly();
+
+        public IReadOnlyCollection<InventoryTransaction> InventoryTransactions =>
+            _inventoryTransactions.AsReadOnly();
 
         private Product()
         {
