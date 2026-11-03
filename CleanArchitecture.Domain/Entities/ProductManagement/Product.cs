@@ -1,4 +1,6 @@
 ﻿using CleanArchitecture.Domain.Common;
+using CleanArchitecture.Domain.Entities.InventoryManagement;
+using CleanArchitecture.Domain.Entities.PurchaseManagement;
 using CleanArchitecture.Domain.Entities.WarehouseManagement;
 using CleanArchitecture.Domain.Enums;
 
@@ -30,10 +32,15 @@ namespace CleanArchitecture.Domain.Entities.ProductManagement
 
         public UnitOfMeasure UnitOfMeasure { get; private set; } = null!;
 
-        private readonly List<Stock> _stocks = []; // one product having stock records in multiple warehouses        
+        private readonly List<Stock> _stocks = []; // one product having stock records in multiple warehouses
+
+        private readonly List<GoodsReceiptItem> _goodsReceiptItems = [];     
 
         public IReadOnlyCollection<Stock> Stocks =>
             _stocks.AsReadOnly();
+
+        public IReadOnlyCollection<GoodsReceiptItem> GoodsReceiptItems =>
+            _goodsReceiptItems.AsReadOnly();      
 
         private Product()
         {
